@@ -8,17 +8,15 @@ The aeroplane class is used to store passengers associated with the plane.
 
 As well as this, it also provides some checks. This is to make sure that the plane doesn't have too many people or too much weight. this is achoeved by some stored values such as a 'maxWeight' and 'seats'.
 
-
-
 ## Fields 
 
 | Name       | Description                                                  |
 | ---------- | ------------------------------------------------------------ |
 | name       | the name given to this instance of a plane.                  |
-| seats      | the total number of passengers that can be held on this plane regardles of weight. |
+| seats      | the total number of passengers that can be held on this plane. |
 | type       | name for the type of plane.                                  |
 | maxWeight  | the total baggage weight that this plane can hold.           |
-| passengers | an array containing all references to all the passengers on this plane. |
+| passengers | an array containing all passengers on this plane.            |
 
 
 
@@ -31,18 +29,22 @@ As well as this, it also provides some checks. This is to make sure that the pla
 
 
 
-## Source Overview
+## Class Overview
 
 ``` javascript
 class Aeroplane {
-  name = "plane1"
-  seats = 24
-  type = "generic passenger plane"
-  maxWeight = 50
-  passengers = []
+  name;
+  seats;
+  type;
+  maxWeight;
+  passengers;
 
 	constructor(name, seats, type, maxWeight);
 	addPassenger(person);
 }
 ```
+
+---
+
+[ReadMe](./../Readme.md)
 
