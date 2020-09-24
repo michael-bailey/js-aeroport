@@ -4,6 +4,8 @@ class Aeroplane {
     seats = 24
     type = "generic passenger plane"
     maxWeight = 50
+    currentLocationName = ""
+    destinationName = ""
 
     passengers = []
 
@@ -41,7 +43,15 @@ class Aeroplane {
 
         this.passengers.push(person)
         return 0
-    } 
+    }
+
+    setLocation(name) {
+        this.currentLocationName = name
+    }
+
+    setDestination(name) {
+        this.destinationName = name
+    }
 }
 
 module.exports = {Aeroplane}
