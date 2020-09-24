@@ -1,12 +1,19 @@
 class Aeroport {
 
+    // static
+    static ports = []
+
+    static getPortByName(name) {
+        Aeroport.ports.find((port) => {name === port.name})
+    }
+
+    // instance
     name = ''
     terminals = 1
     gates = 1
     plane_capacity = 1
 
     planes = []
-
 
     constructor(name, terminals, gates) {
         if (name != undefined) {
@@ -19,6 +26,8 @@ class Aeroport {
             this.gates = gates
         }
         this.plane_capacity = terminals*gates
+
+        Aeroport.ports.push(this)
     }
 
     addPlane(plane) {
@@ -27,6 +36,10 @@ class Aeroport {
             return 0
         }
         return 1
+    }
+
+    transfer(planeName, destinationName) {
+        
     }
 }
 

@@ -7,13 +7,16 @@ describe("bag and passenger tests", () => {
 
     test("test creation", () => {
         let bag1 = new Bag(10.0)
+
         expect(bag1 instanceof Bag).toEqual(true)
     })
+})
 
+describe("passenger tests", () => {
     test("person", () => {
         let bag1 = new Bag(10.0)
         let bag2 = new Bag(24.0)
-        passenger1 = new Passenger("Boris")
+        let passenger1 = new Passenger("Boris")
 
         passenger1.addBag(bag1)
         passenger1.addBag(bag2)
@@ -43,12 +46,10 @@ describe("plane tests", () => {
         let bag1 = new Bag(10.0)
         let bags = [bag1, bag1]
 
-        
-
-        let passenger1 = new Passenger("Boris", bags)
-        let passenger2 = new Passenger("Boris", bags)
-        let passenger3 = new Passenger("Boris", bags)
-        let passenger4 = new Passenger("Boris", bags)
+        let passenger1 = new Passenger("Alice", bags)
+        let passenger2 = new Passenger("Alice", bags)
+        let passenger3 = new Passenger("Alice", bags)
+        let passenger4 = new Passenger("Alice", bags)
 
         let plane1 = new Aeroplane("plane number 1", 6, "a quite small plane", 60)
 
@@ -62,13 +63,13 @@ describe("plane tests", () => {
         let bag1 = new Bag(10.0)
         let bags = [bag1, bag1]
 
-        let passenger1 = new Passenger("Boris", bags)
-        let passenger2 = new Passenger("Boris", bags)
-        let passenger3 = new Passenger("Boris", bags)
-        let passenger4 = new Passenger("Boris", bags)
-        let passenger5 = new Passenger("Boris", bags)
-        let passenger6 = new Passenger("Boris", bags)
-        let passenger7 = new Passenger("Boris", bags)
+        let passenger1 = new Passenger("Bob", bags)
+        let passenger2 = new Passenger("Bob", bags)
+        let passenger3 = new Passenger("Bob", bags)
+        let passenger4 = new Passenger("Bob", bags)
+        let passenger5 = new Passenger("Bob", bags)
+        let passenger6 = new Passenger("Bob", bags)
+        let passenger7 = new Passenger("Bob", bags)
 
         let plane1 = new Aeroplane("plane number 1", 6, "a quite small plane", 60)
 
@@ -116,5 +117,45 @@ describe("areoport tests", () => {
         expect(aeroport instanceof Aeroport).toEqual(true)
         expect(aeroport.plane_capacity).toEqual(16)
         expect(aeroport.name).toEqual("luton")
+        expect(Aeroport.ports.length).toBe(1)
+        expect(Aeroport.ports[0]).toEqual(aeroport)
+    })
+
+    test("test adding planes", () => {
+        bag1 = new Bag(10)
+        bag2 = new Bag(5)
+
+        alice = new Passenger("alice", bag1)
+        bob = new Passenger("bob", bag2)
+        plane1 = new Aeroplane("a plane", 12, "small", 1000)
+        plane1.addPassenger(alice)
+        plane1.addPassenger(bob)
+
+        port1 = new Aeroport("luton", 1, 2);
+        result = port1.addPlane(plane1)
+
+        expect(result).toEqual(0)
+    })
+
+    test("test over fully docked", () => {
+        bag1 = new Bag(10)
+        bag2 = new Bag(5)
+
+        alice = new Passenger("alice", bag1)
+        bob = new Passenger("bob", bag2)
+
+        plane1 = new Aeroplane("a plane", 12, "small", 1000)
+        plane1.addPassenger(alice)
+        plane1.addPassenger(bob)
+
+        plane2 = new Aeroplane("a plane", 12, "small", 1000)
+        plane2.addPassenger(alice)
+        plane2.addPassenger(bob)
+
+        port1 = new Aeroport("luton", 1, 1);
+        port1.addPlane(plane1)
+        result = port1.addPlane(plane2)
+
+        expect(result).toEqual(1)
     })
 })
