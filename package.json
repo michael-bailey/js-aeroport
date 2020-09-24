@@ -1,0 +1,15 @@
+{
+  "name": "aeroport",
+  "version": "1.0.0",
+  "description": "a representation of an aeroport",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watchAll"
+  },
+  "author": "michael bailey",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
