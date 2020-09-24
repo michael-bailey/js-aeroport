@@ -4,7 +4,9 @@ class Aeroport {
     static ports = []
 
     static getPortByName(name) {
-        Aeroport.ports.find((port) => {name === port.name})
+        let port = Aeroport.ports.find((port) => {return name === port.name})
+
+        return port
     }
 
     // instance
@@ -32,14 +34,32 @@ class Aeroport {
 
     addPlane(plane) {
         if (this.planes.length < this.plane_capacity) {
+            plane.setDestination("")
             this.planes.push(plane)
+            plane.setLocation(this.name)
             return 0
         }
         return 1
     }
 
-    transfer(planeName, destinationName) {
-        
+    departPlane(planeName) {
+        // find plane
+        let plane = this.planes.find((p) => {return p.name === planeName})
+
+        if (plane == undefined) {
+            return 1
+        }
+
+        // find port
+        let newPort = Aeroport.getPortByName(plane.destinationName)
+
+        let completed = newPort.addPlane(plane)
+        if (completed == 1) {
+            return 1
+        }
+
+        this.planes.splice(this.planes.indexOf(plane), 1)
+        return 0
     }
 }
 
