@@ -111,25 +111,29 @@ describe("plane tests", () => {
 })
 
 describe("areoport tests", () => {
+
     test("test creation", () => {
         let aeroport = new Aeroport("luton", 2, 8)
 
+        // testing instance
         expect(aeroport instanceof Aeroport).toEqual(true)
         expect(aeroport.plane_capacity).toEqual(16)
         expect(aeroport.name).toEqual("luton")
+
+        // testing static method
         expect(Aeroport.ports.length).toBe(1)
         expect(Aeroport.ports[0]).toEqual(aeroport)
     })
 
-    test("test adding planes", () => {
-        bag1 = new Bag(10)
-        bag2 = new Bag(5)
+    test("test get port by name", () => {
+        let aeroport = new Aeroport("luton", 2, 8)
+        let port = Aeroport.getPortByName("luton")
 
-        alice = new Passenger("alice", bag1)
-        bob = new Passenger("bob", bag2)
+        expect(port).toEqual(aeroport)
+    })
+
+    test("test adding planes", () => {
         plane1 = new Aeroplane("a plane", 12, "small", 1000)
-        plane1.addPassenger(alice)
-        plane1.addPassenger(bob)
 
         port1 = new Aeroport("luton", 1, 2);
         result = port1.addPlane(plane1)
@@ -138,24 +142,31 @@ describe("areoport tests", () => {
     })
 
     test("test over fully docked", () => {
-        bag1 = new Bag(10)
-        bag2 = new Bag(5)
-
-        alice = new Passenger("alice", bag1)
-        bob = new Passenger("bob", bag2)
-
-        plane1 = new Aeroplane("a plane", 12, "small", 1000)
-        plane1.addPassenger(alice)
-        plane1.addPassenger(bob)
-
-        plane2 = new Aeroplane("a plane", 12, "small", 1000)
-        plane2.addPassenger(alice)
-        plane2.addPassenger(bob)
+        let plane1 = new Aeroplane("a plane", 12, "small", 1000)
+        let plane2 = new Aeroplane("a plane", 12, "small", 1000)
 
         port1 = new Aeroport("luton", 1, 1);
         port1.addPlane(plane1)
         result = port1.addPlane(plane2)
 
         expect(result).toEqual(1)
+    })
+
+    test("test transfer of plane", () => {
+
+        let port1 = new Aeroport("luton", 2, 2)
+        let port2 = new Aeroport("gatwick", 4, 4)
+
+        let plane = new Aeroplane("plane_001", 12, "boeing 2", 1000)
+        let result1 = port1.addPlane(plane)
+        
+        plane.setDestination("gatwick")
+        let result2 = port1.departPlane(plane.name)
+
+        expect(result1).toBe(0)
+        expect(result2).toBe(0)
+        expect(port2.planes.length).toEqual(1)
+        expect(port2.planes[0]).toEqual(plane)
+
     })
 })
