@@ -1,11 +1,5 @@
-# Aeroport Demo
+# js-aeroport
 
----
+![Node.js CI](https://github.com/michael-bailey/js-aeroport/workflows/Node.js%20CI/badge.svg)
 
-this is a project used to test and create objects in javascript based on the idea of representing an aeroport
-
-## contents
- - [Aeroplane](./Docs/aeroplane.md)
- - [Aeroport](./Docs/Aeroport.md)
- - [Bag](./Docs/Bag.md)
- - 
+a aeroport example written in js
