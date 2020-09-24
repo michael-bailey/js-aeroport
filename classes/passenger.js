@@ -5,7 +5,10 @@ class Passenger {
 
     constructor(name, bags) {
         this.name = name
-        this.bags = bags
+
+        if (bags != undefined) {
+            this.bags = bags
+        }
     }
 
     addBag(bag) {
@@ -14,11 +17,16 @@ class Passenger {
     }
 
     getTotalBagWeight() {
+        var result = 0
+        for (var i in this.bags) {
+            result += this.bags[i].weight
+        }
 
+        return result
     }
 
     getBagCount() {
-
+        return this.bags.length
     }
 }
 
