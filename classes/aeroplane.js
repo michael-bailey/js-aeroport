@@ -3,8 +3,9 @@ class Aeroplane {
     name = "easyjet1"
     seats = 24
     type = "generic passenger plane"
-
     maxWeight = 50
+
+    passengers = []
 
     constructor(name, seats, type, maxWeight) {
         if (name != undefined) {
@@ -23,6 +24,24 @@ class Aeroplane {
             this.maxWeight = maxWeight
         }
     }
+
+    addPassenger(person) {
+        if (this.passengers.length == this.seats) {
+            return 1
+        }
+
+        var totalWeight = 0
+        for (var i in this.passengers) {
+            totalWeight += this.passengers[i].getTotalBagWeight()
+        }
+
+        if (totalWeight + person.getTotalBagWeight() > this.maxWeight) {
+            return 1
+        }
+
+        this.passengers.push(person)
+        return 0
+    } 
 }
 
 module.exports = {Aeroplane}
