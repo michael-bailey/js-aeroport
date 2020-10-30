@@ -19,11 +19,10 @@ class Aeroplane {
      * Creates a new Aeroplane
      * 
      * @constructor
-     * @param {String} name 
-     * @param {Number} seats 
-     * @param {String} type 
-     * @param {Number} maxWeight
-     * 
+     * @param {String} name the name of the plane
+     * @param {Number} seats the number of seats the plane has
+     * @param {String} type a string of the type of plane
+     * @param {Number} maxWeight the maximum weight that can be held by this plane
      */
     constructor(name, seats, type, maxWeight) {
         if (name != undefined) {
@@ -46,7 +45,7 @@ class Aeroplane {
     /**
      * Calculates the remaining weight this plane supports
      * 
-     * @returns {Number}
+     * @returns {Number} the remaining weight of the plane
      */
     getRemainingWeight() {
         var combinedWeight = 0
@@ -59,7 +58,7 @@ class Aeroplane {
     /**
      * Calculates the remaining seats on the current plane
      * 
-     * @returns {Number}
+     * @returns {Number} the remaining seats of the plane
      */
     getRemainingSeats() {
         return this.seats - this.passengers.length
@@ -67,10 +66,9 @@ class Aeroplane {
 
     /**
      * This adds a passenger to the current plane.
-     * returns 0 if success or 1 if not
      * 
-     * @param {Passenger} person 
-     * @returns {Number}
+     * @param {Passenger} person a passenger to be added
+     * @returns {Number} 0 if success or 1 if not
      */
     addPassenger(person) {
         if (this.getRemainingSeats() > 0 || this.getRemainingWeight() > person.getWeight()) {
@@ -83,7 +81,7 @@ class Aeroplane {
     /**
      * sets the current location of the plane
      * 
-     * @param {String} name 
+     * @param {String} name the name of the current location
      */
     setLocation(name) {
         this.currentLocationName = name
@@ -92,7 +90,7 @@ class Aeroplane {
     /**
      * sets the destination of the plane
      * 
-     * @param {String} name 
+     * @param {String} name the destinationn name
      */
     setDestination(name) {
         this.destinationName = name

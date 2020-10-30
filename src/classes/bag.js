@@ -12,7 +12,7 @@ class Bag {
      * creates a new bag with a weight
      * 
      * @constructor
-     * @param {Number} weight 
+     * @param {Number} weight the weight of the bag
      */
     constructor(weight) {
         this.weight = weight
