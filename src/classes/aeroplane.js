@@ -1,3 +1,9 @@
+
+/**
+ * represents a aeroplane that can travel from port to port
+ * 
+ * @class
+ */
 class Aeroplane {
 
     name = "easyjet1"
@@ -27,22 +33,24 @@ class Aeroplane {
         }
     }
 
-    addPassenger(person) {
-        if (this.passengers.length == this.seats) {
-            return 1
-        }
-
-        var totalWeight = 0
+    getRemainingWeight() {
+        var combinedWeight = 0
         for (var i in this.passengers) {
-            totalWeight += this.passengers[i].getTotalBagWeight()
+            combinedWeight += this.passengers[i].getWeight()
         }
+        return this.maxWeight - combinedWeight
+    }
 
-        if (totalWeight + person.getTotalBagWeight() > this.maxWeight) {
-            return 1
+    getRemainingSeats() {
+        return this.seats - this.passengers.length
+    }
+
+    addPassenger(person) {
+        if (this.getRemainingSeats() > 0 || this.getRemainingWeight() > person.getWeight()) {
+            this.passengers.push(person)
+            return 0
         }
-
-        this.passengers.push(person)
-        return 0
+        return 1
     }
 
     setLocation(name) {

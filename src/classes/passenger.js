@@ -16,12 +16,11 @@ class Passenger {
         this.bags.push(bag)
     }
 
-    getTotalBagWeight() {
+    getWeight() {
         var result = 0
         for (var i in this.bags) {
             result += this.bags[i].weight
         }
-
         return result
     }
 
