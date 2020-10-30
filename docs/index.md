@@ -1,5 +1,7 @@
 # Javascript Aeroport Docs
 
+[By Michael Bailey](https://michael-bailey.github.io/)
+
 ---
 
 This Github pages contains all the documentation for the Javascript Aeroport Demo
@@ -14,13 +16,16 @@ It gives examples of:
     - static methods
     - properties
     - methods
- - Asynchronous functions (to be learned)
+ - Asynchronous functions
+     - callback functions
     - promises & futures
     - async & await
 
 ---
 
- - [Aeroplane](./Docs/aeroplane.md)
- - [Aeroport](./Docs/Aeroport.md)
- - [Bag](./Docs/Bag.md)
- - [Passenger](./Docs/Passenger.md)
+ - [Aeroplane](./aeroplane.md)
+ - [Aeroport](./Aeroport.md)
+ - [Bag](./Bag.md)
+ - [Passenger](./Passenger.md)
+ - [JSDocs](./dist/index.html)
+

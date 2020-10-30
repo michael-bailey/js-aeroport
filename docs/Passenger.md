@@ -1,6 +1,6 @@
 # Passenger
 
-This class descripes a passenger for a plane. It has a weight and any amount of bags. 
+This class describes a passenger for a plane. It has a weight and any amount of bags. 
 
 ## Use
 
@@ -39,4 +39,8 @@ class Passenger {
   getBagCount();
 }
 ```
+
+---
+
+[Index](./index.md)
 

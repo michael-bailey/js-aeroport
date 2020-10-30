@@ -32,3 +32,6 @@ class Bag {
 }
 ```
 
+---
+
+[Index](./index.md)
