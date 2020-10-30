@@ -4,12 +4,23 @@
   "description": "a representation of an aeroport",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "jest",
-    "test-watch": "jest --watchAll"
+    "test-watch": "jest --watchAll",
+    "doc": "jsdoc -r ./src"
   },
   "author": "michael bailey",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^26.4.2"
+    "cssnano": "^4.1.10",
+    "jest": "^26.4.2",
+    "jsdoc": "^3.6.6"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "build",
+      "node_modules",
+      "templates"
+    ]
   }
 }
